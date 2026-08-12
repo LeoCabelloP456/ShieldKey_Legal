@@ -25,8 +25,8 @@
   <li>Tu nombre y RUT.</li>
   <li>Los bancos, ejecutivos y teléfonos de emergencia bancaria que registres.</li>
   <li>Tu correo personal.</li>
-  <li>Los datos de tu Contacto de Confianza (nombre, teléfono y/o correo).</li>
-  <li>La dirección de las llaves Bluetooth que registres como dispositivo de seguridad.</li>
+  <li>Los datos de tu Contacto de Confianza (nombre, teléfono y/o correo). El nombre y teléfono de tu Contacto de Confianza también se incluyen en el correo enviado a tu ejecutivo bancario, para que sepa a quién puede contactar si necesita verificar la situación.</li>
+  <li>La dirección de las llaves Bluetooth que registres como dispositivo de seguridad. Este dato nunca sale de tu teléfono.</li>
   <li>Opcionalmente, y solo con tu autorización explícita, el número de serie de tu documento de identidad.</li>
 </ul>
 
@@ -36,12 +36,18 @@
 <h2>3. Dónde se almacenan</h2>
 <p>Tus datos se guardan cifrados, únicamente en tu propio teléfono. No se suben a ningún servidor mientras no se dispare una alerta de seguridad.</p>
 
-<h2>4. Transferencia internacional de datos</h2>
-<p>Al dispararse una alerta, los datos necesarios se envían a través de EmailJS (proveedor con servidores fuera de Chile) únicamente para redactar y enviar el correo correspondiente. Tu RUT también puede compartirse con tu Contacto de Confianza, solo si diste tu autorización explícita y separada para ello.</p>
+<h2>4. Qué pasa cuando se dispara una alerta</h2>
+<p>Al dispararse una alerta, los datos necesarios se envían primero a nuestro propio servidor (alojado en Firebase), que los usa únicamente en el momento —no los almacena— para reenviarlos a los proveedores que efectivamente entregan la alerta:</p>
+<ul>
+  <li><strong>EmailJS</strong> (servidor fuera de Chile): para el envío de correos, tanto al ejecutivo como a tu Contacto de Confianza si elegiste ese método.</li>
+  <li><strong>Twilio</strong> (servidor fuera de Chile): para el envío de SMS a tu Contacto de Confianza, si elegiste ese método en lugar de correo.</li>
+</ul>
+<p>Tu RUT también puede compartirse con tu Contacto de Confianza, solo si diste tu autorización explícita y separada para ello.</p>
 
 <h2>5. Conservación de los datos</h2>
 <p>Tus datos se eliminan automáticamente de tu teléfono apenas se envía una alerta de seguridad (protocolo anti-suplantación), o en cualquier momento que tú lo solicites desde la app.</p>
 <p><strong>Por qué se borran automáticamente:</strong> si tu teléfono fue robado, no queremos que quien lo tiene en su poder pueda ver tu nombre, RUT, información bancaria ni los datos de tu Contacto de Confianza. Apenas el sistema completa el envío de la alerta (correo y/o SMS) a tu ejecutivo y/o Contacto de Confianza, borra por completo esa información del teléfono — así se evita que un tercero pueda usarla para intentar suplantar tu identidad ante tu banco o ante las personas que registraste.</p>
+<p>Nuestro propio servidor tampoco conserva copia alguna: procesa los datos únicamente mientras dura el envío de la alerta.</p>
 
 <h2>6. Tus derechos (ARCO)</h2>
 <ul>
@@ -52,7 +58,7 @@
 </ul>
 
 <h2 id="eliminar-datos">6.1 Cómo eliminar tus datos de ShieldKey</h2>
-<p>ShieldKey no usa cuentas de usuario ni guarda tus datos en ningún servidor propio — todo se almacena cifrado, únicamente en tu teléfono. Para eliminar todos tus datos:</p>
+<p>ShieldKey no usa cuentas de usuario ni guarda tus datos en ningún servidor propio de forma permanente — todo se almacena cifrado, únicamente en tu teléfono. Para eliminar todos tus datos:</p>
 <ol>
   <li>Abre la app <strong>ShieldKey</strong>.</li>
   <li>Ve a <strong>Configuración</strong>.</li>
@@ -64,7 +70,10 @@
 <p><strong>Períodos de retención adicionales:</strong> no aplican. No conservamos ninguna copia de tus datos después de que los borras o después de desinstalar la app.</p>
 <p>Alternativamente, <strong>desinstalar la app</strong> desde tu teléfono tiene el mismo efecto: borra automáticamente toda la información guardada.</p>
 
-<h2>7. Contacto</h2>
+<h2>7. Suscripciones y pagos</h2>
+<p>Si contratas el Plan Básico o Pro, el pago se procesa íntegramente a través de Google Play — nosotros no vemos ni almacenamos los datos de tu tarjeta o método de pago. Consulta la política de privacidad de Google Play para más información sobre el manejo de esos datos.</p>
+
+<h2>8. Contacto</h2>
 <p>Si tienes preguntas sobre esta política o quieres ejercer tus derechos de otra forma, puedes escribirnos a: <strong>leo.cabellop@gmail.com</strong></p>
 
 <footer>ShieldKey — Aplicación de seguridad bancaria.</footer>
